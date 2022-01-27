@@ -7,6 +7,7 @@
  	$name = $_POST["name"];
  	$email = $_POST["email"];
  	$hp = $_POST["hp"];
+ 	$balance = $_POST["balance"];
 
  // 	$image = $_FILES['image']['name'];
 
@@ -22,7 +23,7 @@
  		echo json_encode($response);
  	} else{
 
-	$insert = "INSERT into tbl_users (id, email, name, hp, register_date, image) values ('".$id."','".$email."','".$name."','".$hp."',NOW(), '')";
+	$insert = "INSERT into tbl_users (id, email, name, hp, register_date, image, balance) values ('".$id."','".$email."','".$name."','".$hp."',NOW(), '', '".$balance."')";
  		
  	if(mysqli_query($connect,$insert)){
  		$response["value"] = 1;
