@@ -9,10 +9,11 @@ require '../connect.php';
 		$hp = $_POST['hp'];
 		$id = $_POST['id'];
 		$image = $_POST['image'];
+		$balance = $_POST['balance'];
 
 		
 
-			$insert = "UPDATE tbl_users SET name = '$name', email = '$email', hp ='$hp', image='$image' WHERE id='$id'";
+			$insert = "UPDATE tbl_users SET name = '$name', email = '$email', hp ='$hp', image='$image', balance='$balance' WHERE id='$id'";
 			if (mysqli_query($connect, $insert)) {
 				$response['value']=1;
 				$response['message']="Data berhasil diupdate";
