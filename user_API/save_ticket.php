@@ -6,21 +6,21 @@ require '../connect.php';
 		$response = array();
 		$id_user = $_POST['id_user'];
 		$id_destination = $_POST['id_destination'];
+		$name = $_POST['name'];
 		$destination_name = $_POST['destination_name'];
-		$total_ticket = $_POST['total_ticket'];
 		$time = $_POST['time'];
+		$total_ticket = $_POST['total_ticket'];
 		$total_price = $_POST['total_price'];
 
-		
 
-		$insert = "INSERT INTO tbl_transactions (id_transaction, id_user, title, picture_path, amount, time, description) VALUES (NULL, '".$id_user."','".$title."','".$picture_path."','".$amount."', '".$time."', '".$description."')";
+		$insert = "INSERT INTO tbl_tickets (booking_code, id_user, id_destination, name, destination_name, time, total_ticket, total_price) VALUES (NULL, '".$id_user."','".$id_destination."','".$name."','".$destination_name."','".$time."', '".$total_ticket."', '".$total_price."')";
 			if (mysqli_query($connect, $insert)) {
 				$response['value']=1;
-				$response['message']="Transaksi disimpan";
+				$response['message']="Tiket disimpan";
 				echo json_encode($response);
 			} else {
 				$response['value']=0;
-				$response['message']="Transaksi gagal disimpan";
+				$response['message']="Tiket gagal disimpan";
 				echo json_encode($response);
 			}
 		}
