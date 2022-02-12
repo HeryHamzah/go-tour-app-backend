@@ -10,6 +10,10 @@
  	$result = array();
 
 While($fetchData=$queryResult->fetch_assoc()){
+	if ($fetchData['rating'] ==  null) {
+		$fetchData['rating'] = "0";
+
+	}
 	$result['result'] = $fetchData;
 }
 
