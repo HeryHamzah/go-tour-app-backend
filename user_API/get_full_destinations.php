@@ -53,3 +53,12 @@ While($fetchData=$queryResult->fetch_assoc()){
 
 echo json_encode($result);
  	}
+
+$response['id_destination'] = $row['id_destination'];
+ 	$response['name'] = $row['name'];
+ 	$response['price'] = $row['price'];
+ 	$response['images'] = $row['images'];
+ 	$response['about'] = $row['about'];
+ 	$response['id_location'] = $row['id_location'];
+ 	$response['location'] = $row['location'];
+ 	$response['rating'] = $row['rating'] ?? 0;
