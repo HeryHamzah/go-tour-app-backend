@@ -4,6 +4,7 @@ require '../connect.php';
 	
 	if ($_SERVER['REQUEST_METHOD']=="POST") {
 		$response = array();
+		$id_transaction = $_POST['id_transaction'];
 		$id_user = $_POST['id_user'];
 		$title = $_POST['title'];
 		$picture_path = $_POST['picture_path'];
@@ -13,7 +14,7 @@ require '../connect.php';
 
 		
 
-		$insert = "INSERT INTO tbl_transactions (id_transaction, id_user, title, picture_path, amount, time, description) VALUES (NULL, '".$id_user."','".$title."','".$picture_path."','".$amount."', '".$time."', '".$description."')";
+		$insert = "INSERT INTO tbl_transactions (id_transaction, id_user, title, picture_path, amount, time, description) VALUES ('".$id_transaction."', '".$id_user."','".$title."','".$picture_path."','".$amount."', '".$time."', '".$description."')";
 			if (mysqli_query($connect, $insert)) {
 				$response['value']=1;
 				$response['message']="Transaksi disimpan";
