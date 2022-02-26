@@ -14,7 +14,7 @@ require '../connect.php';
 		$total_price = $_POST['total_price'];
 
 
-		$insert = "INSERT INTO tbl_tickets (booking_code, id_user, id_destination, name, destination_name, time, total_ticket, total_price) VALUES ('".$booking_code."', '".$id_user."','".$id_destination."','".$name."','".$destination_name."','".$time."', '".$total_ticket."', '".$total_price."')";
+		$insert = "INSERT INTO tbl_tickets (booking_code, id_user, id_destination, name, destination_name, time, total_ticket, total_price, is_rated) VALUES ('".$booking_code."', '".$id_user."','".$id_destination."','".$name."','".$destination_name."','".$time."', '".$total_ticket."', '".$total_price."', 'false')";
 			if (mysqli_query($connect, $insert)) {
 				$response['value']=1;
 				$response['message']="Tiket disimpan";
