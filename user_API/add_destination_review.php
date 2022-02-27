@@ -5,9 +5,10 @@ require '../connect.php';
 	if ($_SERVER['REQUEST_METHOD']=="POST") {
 		$response = array();
 		$booking_code = $_POST['booking_code'];
-		$is_rated = $_POST['is_rated'];
+		$comment = $_POST['comment'];
+		$rating = $_POST['rating'];
 
-			$insert = "UPDATE tbl_tickets SET is_rated = '$is_rated' WHERE booking_code='$booking_code'";
+			$insert = "UPDATE tbl_tickets SET comment = '$comment', rating = '$rating' WHERE booking_code='$booking_code'";
 			if (mysqli_query($connect, $insert)) {
 				$response['value']=1;
 				$response['message']="Review disimpan";
