@@ -1,17 +1,14 @@
 <?php 
- require '../connect.php';
+require '../connect.php';
 
- if($_SERVER["REQUEST_METHOD"] == "POST"){
- 	$response = array();
- 	$id_user = $_POST["id_user"];
+$queryResult = $connect->query("SELECT a.*, b.name as user_name, b.image as profile_picture FROM tbl_tickets a INNER JOIN tbl_users b ON a.id_user = b.id");
 
- 	$queryResult = $connect->query("SELECT * FROM tbl_tickets where id_user ='$id_user'");
-
- 	$result = array();
+$result = array();
 
 While($fetchData=$queryResult->fetch_assoc()){
 	$result[] = $fetchData;
-	}
+}
 
 echo json_encode($result);
-}
+
+ ?>
