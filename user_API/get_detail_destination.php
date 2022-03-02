@@ -12,7 +12,7 @@
 While($fetchData=$queryResult->fetch_assoc()){
 	if ($fetchData['rating'] ==  null) {
 		$fetchData['rating'] = "0";
-
+		$fetchData['number_of_reviews'] = "0";
 	}
 	$result['result'] = $fetchData;
 }
