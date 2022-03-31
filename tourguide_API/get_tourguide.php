@@ -14,7 +14,7 @@ While($fetchData=$queryResult->fetch_assoc()){
 		$fetchData['number_of_reviews'] = "0";
 
 	}
-		$result[] = $fetchData;
+		$result['result'] = $fetchData;
 }
 
 echo json_encode($result);

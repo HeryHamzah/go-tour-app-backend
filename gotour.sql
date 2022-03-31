@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 14 Mar 2022 pada 12.58
+-- Waktu pembuatan: 31 Mar 2022 pada 12.02
 -- Versi server: 5.7.33
 -- Versi PHP: 7.4.19
 
@@ -109,6 +109,7 @@ CREATE TABLE `tbl_tickets` (
 
 INSERT INTO `tbl_tickets` (`booking_code`, `id_user`, `id_destination`, `time`, `total_ticket`, `total_price`, `comment`, `rating`) VALUES
 ('027N514285', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 5, '1645977600000', 1, 40500, 'rammang2 oke', '5.0'),
+('2J47156048', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 2, '1647705600000', 2, 31000, '', '0'),
 ('6A59005767', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 6, '1646323200000', 2, 21000, '', '0'),
 ('9257159068', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 10, '1645113600000', 1, 30500, 'hutan pinus comment', '3.0'),
 ('93QT6Z4480', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 17, '1646928000000', 1, 10500, '', '0'),
@@ -119,7 +120,7 @@ INSERT INTO `tbl_tickets` (`booking_code`, `id_user`, `id_destination`, `time`, 
 ('GDJS68DJS', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 1, '356787453423', 2, 40000, '', '5.0'),
 ('JNI1MOXNNM', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 8, '1645372800000', 2, 11000, '', '0'),
 ('LBH90Y1UWX', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 14, '1646064000000', 1, 15500, '', '0'),
-('MQUIEC3807', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 7, '1646064000000', 1, 500, '', '0'),
+('MQUIEC3807', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 7, '1646064000000', 1, 500, 'PLTB terkeren', '5.0'),
 ('MRRLCQXGOF', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 2, '1646409600000', 1, 15500, '', '0'),
 ('OBCCLFKUZ1', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 11, '1646150400000', 1, 15500, '', '0'),
 ('VUUSFNFMAD', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 3, '1646064000000', 1, 40500, '', '4'),
@@ -138,31 +139,33 @@ CREATE TABLE `tbl_tourguide` (
   `id` int(3) NOT NULL,
   `name` text NOT NULL,
   `email` text NOT NULL,
+  `password` text NOT NULL,
   `image` text NOT NULL,
   `hp` text NOT NULL,
   `id_location` text NOT NULL,
   `balance` text NOT NULL,
   `jk` text NOT NULL,
-  `cost` text NOT NULL
+  `cost` text NOT NULL,
+  `status` enum('on','off') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_tourguide`
 --
 
-INSERT INTO `tbl_tourguide` (`id`, `name`, `email`, `image`, `hp`, `id_location`, `balance`, `jk`, `cost`) VALUES
-(1, 'Ayo Ogunseinde', 'ayo-ogunseinde@gmail.com', 'ayo-ogunseinde.jpg', '083479464999', '1', '0', 'Perempuan', '50000'),
-(2, 'Ben Parker', 'ben-parker@gmail.com', 'ben-parker.jpg', '086342016888', '1', '0', 'Laki-laki', '60000'),
-(3, 'Jake Nackos', 'jake-nackos@gmail.com', 'jake-nackos.jpg', '086342367998', '2', '0', 'Perempuan', '50000'),
-(4, 'Jeffery Erhunse', 'jeffery-erhunse@gmail.com', 'jeffery-erhunse.jpg', '087654321234', '2', '0', 'Perempuan', '35000'),
-(5, 'Joseph Gonzalez', 'joseph-gonzalez@gmail.com', 'joseph-gonzalez.jpg', '083129865700', '3', '0', 'Laki-laki', '60000'),
-(6, 'Jurica Koletic', 'jurica-koletice@gmail.com', 'jurica-koletic.jpg', '087654321433', '3', '0', 'Laki-laki', '100000'),
-(7, 'Matheus Ferrero', 'matheus-ferrero@gmail.com', 'matheus-ferrero.jpg', '083129125711', '4', '0', 'Perempuan', '50000'),
-(8, 'Stefan Stefancik', 'stefan-stefancik@gmail.com', 'stefan-stefancik.jpg', '083129125111', '4', '0', 'Perempuan', '100000'),
-(9, 'Stephanie Liverani', 'stephanie-liverani@gmail.com', 'stephanie-liverani.jpg', '083528166453', '5', '0', 'Perempuan', '45000'),
-(10, 'Vicky Hladynets', 'vicky-hladynets@gmail.com', 'vicky-hladynets.jpg', '083528195555', '5', '0', 'Perempuan', '80000'),
-(11, 'Leon Tan', 'leon-tan@gmail.com', 'leon-tan.jpg', '083528195431', '6', '0', 'Perempuan', '50000'),
-(12, 'Cristina', 'christina@gmail.com', 'christina.jpg', '081234538882', '6', '0', 'Perempuan', '55000');
+INSERT INTO `tbl_tourguide` (`id`, `name`, `email`, `password`, `image`, `hp`, `id_location`, `balance`, `jk`, `cost`, `status`) VALUES
+(1, 'Ayo Ogunseinde', 'ayo-ogunseinde@gmail.com', '123456', 'ayo-ogunseinde.jpg', '083479464999', '1', '0', 'Perempuan', '50000', 'on'),
+(2, 'Ben Parker', 'ben-parker@gmail.com', '', 'ben-parker.jpg', '086342016888', '1', '0', 'Laki-laki', '60000', 'on'),
+(3, 'Jake Nackos', 'jake-nackos@gmail.com', '', 'jake-nackos.jpg', '086342367998', '2', '0', 'Perempuan', '50000', 'on'),
+(4, 'Jeffery Erhunse', 'jeffery-erhunse@gmail.com', '', 'jeffery-erhunse.jpg', '087654321234', '2', '0', 'Perempuan', '35000', 'on'),
+(5, 'Joseph Gonzalez', 'joseph-gonzalez@gmail.com', '', 'joseph-gonzalez.jpg', '083129865700', '3', '0', 'Laki-laki', '60000', 'on'),
+(6, 'Jurica Koletic', 'jurica-koletice@gmail.com', '', 'jurica-koletic.jpg', '087654321433', '3', '0', 'Laki-laki', '100000', 'on'),
+(7, 'Matheus Ferrero', 'matheus-ferrero@gmail.com', '', 'matheus-ferrero.jpg', '083129125711', '4', '0', 'Perempuan', '50000', 'on'),
+(8, 'Stefan Stefancik', 'stefan-stefancik@gmail.com', '', 'stefan-stefancik.jpg', '083129125111', '4', '0', 'Perempuan', '100000', 'on'),
+(9, 'Stephanie Liverani', 'stephanie-liverani@gmail.com', '', 'stephanie-liverani.jpg', '083528166453', '5', '0', 'Perempuan', '45000', 'on'),
+(10, 'Vicky Hladynets', 'vicky-hladynets@gmail.com', '', 'vicky-hladynets.jpg', '083528195555', '5', '0', 'Laki-laki', '80000', 'on'),
+(11, 'Leon Tan', 'leon-tan@gmail.com', '', 'leon-tan.jpg', '083528195431', '6', '0', 'Perempuan', '50000', 'on'),
+(12, 'Cristina', 'christina@gmail.com', '123456', 'christina.jpg', '081234538882', '6', '0', 'Perempuan', '55000', 'on');
 
 -- --------------------------------------------------------
 
@@ -235,6 +238,7 @@ INSERT INTO `tbl_transactions` (`id_transaction`, `id_user`, `title`, `picture_p
 ('B2254310648', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Pinisi', 'Pinisi_1.jpg', '-20500', '1646015789531', 'Bulukumba'),
 ('B3562215553', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Puncak Lappa Laona', 'Lappa_Laona_1.jpg', '-31000', '1644924973745', 'Barru'),
 ('B3757225612', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Rammang-rammang', 'Rammang-rammang_1.jpg', '-40500', '1644925116670', 'Maros'),
+('B5194154188', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Pantai Bara', 'Pantai_Bara_1.jpg', '-31000', '1647611434546', 'Bulukumba'),
 ('B5235689301', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'PLTB Tolo', 'PLTB_Tolo_1.jpg', '-500', '1646017921059', 'Jeneponto'),
 ('B5535535096', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Danau Tanralili', 'Danau_Tanralili_1.jpg', '-10500', '1644925954803', 'Malino'),
 ('B6147780994', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Sungai Palattae', 'Sungai_Palattae_1.jpg', '-10500', '1646910188862', 'Pangkep'),
@@ -284,7 +288,7 @@ CREATE TABLE `tbl_users` (
 INSERT INTO `tbl_users` (`id`, `email`, `name`, `hp`, `register_date`, `image`, `balance`) VALUES
 ('mVYQijySQqZFeLkPvouCL47daiW2', 'scarlet@gmail.com', 'Scrlet', '', '2022-03-02 17:48:22', 'scaled_IMG_20220206_204619.jpg', '0'),
 ('nqaSL6uvIvdyx0zIZXQhCh2l6YC3', 'scarlet.indonesia27@gmail.com', 'User Pro', '', '2022-03-02 22:11:56', '', '0'),
-('V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'hery@gmail.com', 'Hery Hz', '085340365886', '2022-01-27 19:02:15', 'scaled_IMG_20220309_013507_628.jpg', '438500');
+('V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'hery@gmail.com', 'Hery Hz', '085340365886', '2022-01-27 19:02:15', 'scaled_IMG_20220309_013507_628.jpg', '407500');
 
 --
 -- Indexes for dumped tables
