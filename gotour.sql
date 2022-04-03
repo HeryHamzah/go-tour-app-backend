@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 31 Mar 2022 pada 12.02
+-- Waktu pembuatan: 03 Apr 2022 pada 13.49
 -- Versi server: 5.7.33
 -- Versi PHP: 7.4.19
 
@@ -165,7 +165,8 @@ INSERT INTO `tbl_tourguide` (`id`, `name`, `email`, `password`, `image`, `hp`, `
 (9, 'Stephanie Liverani', 'stephanie-liverani@gmail.com', '', 'stephanie-liverani.jpg', '083528166453', '5', '0', 'Perempuan', '45000', 'on'),
 (10, 'Vicky Hladynets', 'vicky-hladynets@gmail.com', '', 'vicky-hladynets.jpg', '083528195555', '5', '0', 'Laki-laki', '80000', 'on'),
 (11, 'Leon Tan', 'leon-tan@gmail.com', '', 'leon-tan.jpg', '083528195431', '6', '0', 'Perempuan', '50000', 'on'),
-(12, 'Cristina', 'christina@gmail.com', '123456', 'christina.jpg', '081234538882', '6', '0', 'Perempuan', '55000', 'on');
+(12, 'Cristina', 'christina@gmail.com', '123456', 'christina.jpg', '081234538882', '6', '0', 'Perempuan', '55000', 'on'),
+(13, 'Fixy', 'fixy@gmail.com', '111111', 'scaled_c72674d4-15dc-4619-b990-2ca93e8cc90b6560314569703364896.jpg', '08362538364', '1', '0', 'Laki-laki', '40000', 'on');
 
 -- --------------------------------------------------------
 
@@ -190,12 +191,13 @@ CREATE TABLE `tbl_tourguide_tickets` (
 
 INSERT INTO `tbl_tourguide_tickets` (`id`, `id_user`, `id_tourguide`, `date_time`, `destinations`, `total_price`, `comment`, `rating`) VALUES
 ('54199T1SQ8', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 9, '1646150400000', 'Puncak Lappa Laona', '60000', 'komen for Stephanie liverani', '5.0'),
-('5C55757374', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 8, '1646323200000', 'Hutan Pinus, Parang Bugisi, Danau Tanralili', '155000', '', '0'),
+('5C55757374', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 8, '1646323200000', 'Hutan Pinus, Parang Bugisi, Danau Tanralili', '155000', 'Stefan cukup baik', '4.0'),
 ('5M00G55964', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 7, '1645113600000', 'Parang Bugisi, Danau Tanralili', '75000', 'tour guide keren', '5'),
 ('6', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 1, '1644940800000', 'Pinisi', '70000', '', '5'),
 ('7', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 3, '1645027200000', 'Kawasan Karst, Rammang-rammang', '120000', 'comment for Jack nachos', '5.0'),
 ('8772811729', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 10, '1646236800000', 'Celebes Canyon', '100000', 'comment for vicky', '5.0'),
 ('dsdsdds', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 1, '1645113600000', 'sddsds', '10000', '4 aja ya, Ayo Ogun', '4.0'),
+('RGTGFYYDU0', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 1, '1649088000000', 'Pinisi, Ammatoa, Pantai Bara', '125000', '', '0'),
 ('SU05O78QR6', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 5, '1645200000000', 'PLTB Tolo', '60000', '', '3');
 
 -- --------------------------------------------------------
@@ -252,6 +254,7 @@ INSERT INTO `tbl_transactions` (`id_transaction`, `id_user`, `title`, `picture_p
 ('B9212626543', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Pantai Bara', 'Pantai_Bara_1.jpg', '-15500', '1645965087318', 'Bulukumba'),
 ('B9436835124', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Kawasan Karst', 'Karst_1.jpg', '-30500', '1646130970230', 'Maros'),
 ('B9955311240', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Hutan Pinus', 'Hutan_Pinus_1.jpg', '-30500', '1645086564509', 'Malino'),
+('C1286388222', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Ayo Ogunseinde', 'ayo-ogunseinde.jpg', '-125000', '1648979134486', 'Pinisi, Ammatoa, Pantai Bara'),
 ('C1483399285', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Vicky Hladynets', 'vicky-hladynets.jpg', '-85000', '1646023917032', 'Bukit Lakeppo'),
 ('C1860358245', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Matheus Ferrero', 'matheus-ferrero.jpg', '-75000', '1644995141218', 'Parang Bugisi, Danau Tanralili'),
 ('C2642141707', 'V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'Jurica Koletic', 'jurica-koletic.jpg', '-115000', '1646133776156', 'Batu Siping, PLTB Tolo, Bukit Bossolo'),
@@ -288,7 +291,7 @@ CREATE TABLE `tbl_users` (
 INSERT INTO `tbl_users` (`id`, `email`, `name`, `hp`, `register_date`, `image`, `balance`) VALUES
 ('mVYQijySQqZFeLkPvouCL47daiW2', 'scarlet@gmail.com', 'Scrlet', '', '2022-03-02 17:48:22', 'scaled_IMG_20220206_204619.jpg', '0'),
 ('nqaSL6uvIvdyx0zIZXQhCh2l6YC3', 'scarlet.indonesia27@gmail.com', 'User Pro', '', '2022-03-02 22:11:56', '', '0'),
-('V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'hery@gmail.com', 'Hery Hz', '085340365886', '2022-01-27 19:02:15', 'scaled_IMG_20220309_013507_628.jpg', '407500');
+('V7sf6pkHiEduQ6jaKyXtHHxkfr73', 'hery@gmail.com', 'Hery Hz', '085340365886', '2022-01-27 19:02:15', 'scaled_IMG_20220309_013507_628.jpg', '282500');
 
 --
 -- Indexes for dumped tables
@@ -356,7 +359,7 @@ ALTER TABLE `tbl_locations`
 -- AUTO_INCREMENT untuk tabel `tbl_tourguide`
 --
 ALTER TABLE `tbl_tourguide`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
